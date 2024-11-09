@@ -1,0 +1,134 @@
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+
+#btnContainer{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(167,158,228,0.9607492655265231) 63%);
+}
+#btnSignin:hover{
+    background-color: black;
+    color: white;
+}
+#btnSignin{
+    width: 180%;
+    font-weight: bold;
+    font-family: Copperplate;
+}
+#btnhome:hover{
+    background-color: black;
+    color: white;
+}
+#btnhome{
+    width: 200%;
+    font-weight: bold;
+    font-family: Copperplate;
+}
+#btndashi:hover{
+    background-color: black;
+    color: white;
+}
+#btndashi{
+    width: 120%;
+    font-weight: bold;
+    font-family: Copperplate;
+}
+#btnRegister:hover{
+    background-color: black;
+    color: white;
+
+}
+#btnRegister{
+    width: 180%;
+    font-weight: bold;
+    font-family: Copperplate;
+}
+#indexMain{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(167,158,228,0.9607492655265231) 63%);
+}
+#title33{
+    
+    color: white;
+    padding-top: 20%;
+    padding-bottom: 30%;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: Copperplate;
+    word-spacing: 10px;
+    letter-spacing: 10px;
+    margin-left: 8%;
+}
+.title{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Copperplate;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-top: -15%;
+    text-align: justify;
+}
+img{
+    border-radius: 100%;
+    height: 110%;
+    width:100%;
+    margin-top: -5%;
+
+}
+
+#footerindex{
+    margin-top: 60px;
+    height: 50%;
+    background-color: rgb(28, 27, 27);
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}
+.footerlogo{
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 45px;
+    height: 50%;
+    border-right: 6px groove white;
+    margin-top: 16%;
+    margin-left: 20%;
+    font-family: Copperplate;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(167,158,228,0.9607492655265231) 63%);
+}
+
+#footerlast{
+    color: white;
+    font-size: 20px;
+    font-family: Copperplate;
+    margin-top: 12%;
+    margin-left: 10%;
+    padding-left: 20%;
+    border-left: 5px solid gray;
+    height: 65%;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: Copperplate;
+}
+a:hover{
+    text-decoration: none;
+    color: rgba(167,158,228,0.9607492655265231);
+    font-family: Copperplate;
+}

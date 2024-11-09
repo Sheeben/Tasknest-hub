@@ -1,0 +1,21 @@
+{
+  "name": "server-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "jquery": "^3.7.1",
+    "jquery.cookie": "^1.4.1",
+    "mongodb": "^3.7.4"
+  },
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

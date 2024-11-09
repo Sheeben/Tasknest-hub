@@ -1,0 +1,78 @@
+h2{
+    color: rgb(161, 62, 184);
+    font-family: Copperplate;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#mainSign{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}
+#titlebox{
+    background: rgb(2,0,36);
+    background: linear-gradient(30deg,  rgba(167,158,228,0.9607492655265231) 60%,rgba(2,0,36,1) 60%);
+    text-align: center;
+    padding-top: 20%;
+    height: 80%;
+    margin-top: 10%;  
+    margin-left: -10%;  
+}
+
+
+#titlebox2{
+    background-color: white; 
+    width: 50%; 
+    height: 80%; 
+    margin-left:25%; 
+    border-radius: 10%; 
+    padding-top: 10%;
+}
+#titlebox2:hover{
+    background-color: black; 
+    width: 50%; 
+    height: 80%; 
+    margin-left:25%; 
+    border-radius: 10%; 
+    padding-top: 10%;  
+}
+#btnLogin{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+#btnCancel{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+#btnLogin:hover{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+#btnCancel:hover{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+.mt{
+    background-color: white;
+    margin-top: 10%;
+    height: 80%;
+  
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: Copperplate;
+}
+a:hover{
+    text-decoration: none;
+    color: rgba(167,158,228,0.9607492655265231);
+    font-family: Copperplate;
+}
+
+

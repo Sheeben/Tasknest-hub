@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskNest Hub</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../src/styles/dashboard.css">
+</head>
+<body>
+    <div class="bg-light dashboard-container p-3" id="dashdiv"> 
+        <h2 class="text-light"> <span id="lblUserId"></span> - Dashboard <button data-bs-target="#add-task" data-bs-toggle="modal" class="bi bi-calendar-plus btn btn-success"> Add Task</button> <button id="btnSignout" class="btn btn-danger">Signout</button> </h2>
+        <div class="modal fade" id="add-task">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <div class="modal-header">
+                    <h3>Add Appointment</h3>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                   </div>
+                   <div class="modal-body">
+                    <dl>
+                        <dt>Appointment ID</dt>
+                        <dd><input type="number" id="Add_AppointmentId"></dd>
+                        <dt>Title</dt>
+                        <dd><input type="text" id="Add_Title"></dd>
+                        <dt>Description</dt>
+                        <dd><textarea id="Add_Description" rows="4" cols="40"></textarea></dd>
+                        <dt>Date</dt>
+                        <dd><input type="date" id="Add_Date"></dd>
+                    </dl>
+                   </div>
+                   <div class="modal-footer">
+                        <button class="btn btn-dark text-light" id="btnAddAppointment" data-bs-dismiss="modal">Add </button>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <main class="d-flex flex-wrap" id="dashmain">
+            <div class="modal fade" id="edit-task">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                       <div class="modal-header">
+                        <h3>Edit Appointment</h3>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                       </div>
+                       <div class="modal-body">
+                        <dl>
+                            <dt>Appointment ID</dt>
+                            <dd><input type="number" id="Edit_AppointmentId"></dd>
+                            <dt>Title</dt>
+                            <dd><input type="text" id="Edit_Title"></dd>
+                            <dt>Description</dt>
+                            <dd><textarea id="Edit_Description" rows="4" cols="40"></textarea></dd>
+                            <dt>Date</dt>
+                            <dd><input type="date" id="Edit_Date"></dd>
+                        </dl>
+                       </div>
+                       <div class="modal-footer">
+                            <button class="btn btn-dark text-light" id="btnSaveAppointment" data-bs-dismiss="modal">Save </button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
