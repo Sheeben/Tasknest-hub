@@ -1,4 +1,10 @@
+
+let isPageLoading = false;
+
 function LoadPage(pageName){
+
+    if (isPageLoading) return;  // Prevent loading the page multiple times
+    isPageLoading = true;  // Set flag to prevent further loading
           
     $.ajax({
         method:'get', 
@@ -7,6 +13,12 @@ function LoadPage(pageName){
              $("section").show();
              $("section").html(response);
              $("#btnContainer").hide();
+        },
+          error: () => {
+            alert('Failed to load page');
+        },
+        complete: () => {
+            isPageLoading = false;  // Reset the flag after the page is loaded
         }
       })
 
@@ -92,15 +104,17 @@ $(function(){
     })
 
 
-    $(document).on("click", "#btnFrmRegister", ()=>{
+    $(document).on("click", "#btnFrmRegister", function(){
 
+        var $this=$(this);
+        $this.this.pro('disabled', true);
         var user = {
             UserId: $("#UserId").val(),
             UserName: $("#UserName").val(),
             Password: $("#Password").val(),
             Email: $("#Email").val(),
             Mobile: $("#Mobile").val()
-        }
+        };
 
 
          $.ajax({
@@ -110,9 +124,17 @@ $(function(){
             success: ()=>{
                 alert('Registered Successfully..');
                 LoadPage('signin.html');
+            },
+            error: () => {
+                alert('Registration Failed');
+            },
+            complete: () => {
+                $this.prop('disabled', false); // Re-enable the button after the request completes
             }
          })
     })
+
+
 
     function LoadMain(){
         $("#dashmain").html('');
@@ -127,7 +149,7 @@ $(function(){
                           <h4>${task.Title}</h4>
                           <p>${task.Description}</p>
                           <div><span class="bi bi-calendar-event"> ${task.Date.toString()} </span></div>
-                          <button data-bs-toggle="modal" data-bs-target="#edit-task" value=${task.AppointmentId} id="btnEditTask" class="btn btn-warning bi bi-pen-fill">Edit Task</button>
+                          <button data-bs-toggle="modal" data-bs-target="#edit-task" value=${task.AppointmentId} id="btnEditTask" class="btn btn-warning bi bi-pen-fill ">Edit Task</button>
                           <button value=${task.AppointmentId} id="btnDeleteTask" class="btn btn-danger bi bi-trash-fill">Delete Task</button>
                         </div>
                      `).appendTo("#dashmain");
@@ -136,7 +158,11 @@ $(function(){
          })
     }
 
+    let isTaskSubmitting = false;
+
     $(document).on("click", "#btnAddAppointment", ()=>{
+        if (isTaskSubmitting) return;
+        isTaskSubmitting = true;
 
         var task = {
             AppointmentId: $("#Add_AppointmentId").val(),
@@ -153,6 +179,12 @@ $(function(){
             success:()=>{
                 alert('Appointment Added Successfully..');
                 LoadMain();
+            },
+            error: () => {
+                alert('Failed to add task');
+            },
+            complete: () => {
+                isTaskSubmitting = false;  // Reset the flag after the request is complete
             }
         })
     })
@@ -168,6 +200,9 @@ $(function(){
                     url:`http://127.0.0.1:6600/delete-task/${id}`,
                     success:()=>{
                         LoadMain();
+                    },
+                    error: () => {
+                        alert('Failed to delete task');
                     }
                 })
           }
@@ -176,18 +211,18 @@ $(function(){
 
     $(document).on("click", "#btnEditTask", (e)=> {
 
-           $.ajax({
-            method:'get',
-            url: `http://127.0.0.1:6600/get-appointment/${e.target.value}`,
-            success: (tasks)=> {
-                 var editDateStr = new tasks[0].Date;
-                 $("#Edit_AppointmentId").val(tasks[0].AppointmentId);
-                 $("#Edit_Title").val(tasks[0].Title);
-                 $("#Edit_Description").val(tasks[0].Description);
-                 $("#Edit_Date").val(editDateStr.substring(editDateStr.indexOf("T"),0));
-             }
-           })
-    })
+        $.ajax({
+         method:'get',
+         url: `http://127.0.0.1:6600/get-appointment/${e.target.value}`,
+         success: (tasks)=> {
+              var editDateStr = tasks[0].Date;
+              $("#Edit_AppointmentId").val(tasks[0].AppointmentId);
+              $("#Edit_Title").val(tasks[0].Title);
+              $("#Edit_Description").val(tasks[0].Description);
+              $("#Edit_Date").val(editDateStr.substring(editDateStr.indexOf("T"),0));
+          }
+        })
+ })
 
     $(document).on("click","#btnSaveAppointment", ()=>{
 
